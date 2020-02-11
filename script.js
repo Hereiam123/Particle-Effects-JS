@@ -1,15 +1,20 @@
-let p;
+const particles = [];
 
 function setup() {
   //Set canvas to window height and width
   createCanvas(window.innerWidth, window.innerHeight);
-  p = new Particle();
+  const particlesLength = Math.floor(window.innerWidth / 10);
+  for (let i = 0; i < particlesLength; i++) {
+    particles.push(new Particle());
+  }
 }
 
 function draw() {
   background("blue");
-  p.update();
-  p.draw();
+  particles.forEach((particle, index) => {
+    particle.update();
+    particle.draw();
+  });
 }
 
 class Particle {
