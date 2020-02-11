@@ -14,6 +14,9 @@ function draw() {
   particles.forEach((particle, index) => {
     particle.update();
     particle.draw();
+
+    //Only want to check particles that are left to check,
+    //so only from current particle index in loop
     particle.checkParticles(particles.slice(index));
   });
 }
